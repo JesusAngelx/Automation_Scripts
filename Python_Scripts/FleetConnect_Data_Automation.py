@@ -1,7 +1,6 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
+#This was an automation script to automate data entries that I did not want to manually do. 
+#I was given thousands of raows and was expected to amnually enter them but iknew there was a better way to do this using an automation script
+#After many attempts this is what I came up with
 
 
 
