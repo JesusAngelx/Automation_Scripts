@@ -14,17 +14,11 @@ import xlrd
 import numpy as np
 
 
-# In[2]:
-
-
 #Page Load wait
 browser = webdriver.Chrome()
 browser.implicitly_wait(10) # seconds
 browser.get("https://nuride.limoconnect247.net/fleetconnect/Index.htm#logout")
 myDynamicElement = browser.find_element_by_id("username")
-
-
-# In[3]:
 
 
 #Password loop
@@ -55,9 +49,6 @@ while True:
         break
 
 
-# In[3]:
-
-
 #Navigation
 time.sleep(8)
 browser.find_element_by_xpath('//*[@id="header"]/div[3]/ul/li[2]').click()
@@ -66,14 +57,10 @@ browser.find_element_by_xpath('//*[@id="header"]/div[3]/ul/li[2]/ul/li[3]/ul/li[
 time.sleep(5)
 
 
-# In[4]:
-
 
 #This will depend on where the file is 
 data = pd.read_excel(r'C:\Users\Jesus\Desktop\Fleet Connect Data Automation.xlsx', sheet_name='Driver')
 
-
-# In[5]:
 
 
 #formatting 
@@ -83,27 +70,19 @@ data[cols] = data[cols].applymap(np.int64)
 data['Date'] = pd.to_datetime(data['Date'], format='%m/%d/%y').dt.strftime('%m/%d/%Y')
 
 
-# In[6]:
-
 
 data.head()
 
 
-# In[8]:
 
 
 #Counts the rows
 countRow = len(data.index)
 
 
-# In[9]:
-
 
 #List of lists missing entries
 missing = []
-
-
-# In[14]:
 
 
 #Data entry loop
@@ -150,19 +129,13 @@ for x in range(countRow):
 #Close      
 browser.find_element_by_id('close').click()
         
-        
-
-
-# In[11]:
-
+    
 
 #Finally print the Values not entered 
 print('Errors or Not entered:')
 print('')
 print(*missing, sep = "\n") 
 
-
-# In[ ]:
 
 
 
